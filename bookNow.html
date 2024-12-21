@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+<!-- Firebase SDK v8 -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+
+    <meta charset="utf-8" />
+    <meta
+      name="keywords"
+      content="Edupls - Education & Online Course HTML Template"
+    />
+    <meta
+      name="description"
+      content="Edupls - Education & Online Course HTML Template"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/img/logo/fav-icon.svg" />
+    <title>Edupls - Education & Online Course HTML Template</title>
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <!-- Icomoon Icon -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css" />
+    <!-- Aos Animation -->
+    <link rel="stylesheet" href="assets/css/aos.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <!-- Animate Css -->
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <!-- Main Css File -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+  </head>
+
+
+
+  <body>
+
+    <div id="header"></div>
+
+    <section class="breadcum">
+      <div class="container">
+        <div class="breadcum-content">
+          <h2 class="title">Book Now</h2>
+          <h4 class="para"><a href="index.html">Home</a> / Book Now</h4>
+        </div>
+      </div>
+    </section>
+    <section class="@ py-120 contact-bg-color">
+      <div class="container-xxl">
+        <div class="contact-us-content">
+          <div class="contact-us-img">
+            <img
+              src="assets/img/contact-us/contact-img.jpg"
+              alt="contact-img"
+            />
+
+          </div>
+          <div class="contact-us-right-content">
+            <div class="section-title">
+              <div class="section-title-inner">
+                <h4 class="sub-title">Our Members</h4>
+                <h2 class="big-title s-color-white">Book seat now !</h2>
+              </div>
+            </div>
+
+
+        
+
+
+            <form class="get-free-form-content" id="bookingForm">
+              <div class="group-form-box">
+                <!-- name -->
+                <div class="form-box">
+                  <input type="text" placeholder="Your Name" id="userName" />
+                </div>
+
+                <!-- Email id -->
+                <div class="form-box">
+                  <input type="email" placeholder="Email Address" id="userEmail"/>
+                </div>
+              </div>
+
+              <div class="group-form-box">
+                
+              <div class="form-box">
+                <select id="courseSelect", style="color: gray;" onchange="changeColor()">
+                  <option value="" disabled selected style="color: gray;">Interseted Courses</option>
+               
+                  <option value="Devops" style="color: black;">Devops</option>
+                  <option value="Data Analytics"style="color: black;">Data Analytics</option>
+                  <option value="Full-Stack Java"style="color: black;">Full-Stack Java</option>
+                  
+                  <option value="Full Stack Python"style="color: black;">
+                    Full Stack Python
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </option>
+
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+
+              
+
+                <!-- education -->
+                <div class="form-box">
+                  <input type="text" placeholder="Contact Number" id="contactNumber" />
+                </div>
+            
+              </div>
+
+              
+              <div class="group-form-box">
+
+                <!-- education -->
+                <div class="form-box">
+                  <input type="text" placeholder="Your Education" id="education"/>
+                </div>
+            
+              </div>
+                
+              <div class="group-form-box">
+
+                <!-- education -->
+                <div class="form-box">
+                  <input type="text" placeholder="Working / Student (Currently)" id="workingStatus"/>
+                </div>
+            
+              </div>
+              
+              
+
+              <!-- <div class="form-box">
+                <input type="text" placeholder="Select Subject" />
+              </div> -->
+
+
+
+              <div id="successAlert" class="alert alert-success p-3 d-none" role="alert">
+                Form Submitted successfully..!!
+              </div>
+
+              
+              <!-- <div class="form-box-last">
+                <textarea
+                  cols="30"
+                  rows="10"
+                  placeholder="Type Your Message"
+                ></textarea>
+              </div> -->
+              <div class="check-box">
+                <div class="all-btn v3">
+                  <button class="btn-p v1 rounded btn-white" type="submit">
+                   Book Now
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="bg-map-contact-us">
+              <img
+                src="assets/img/contact-us/bg-map-contact-us.png"
+                alt="bg-map-contact-us"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="contact-us-contact-info">
+      <div class="container">
+        <div class="info-list">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="info-list-content">
+                <div class="info-icon">
+                  <i class="my-icon icon-call-us-2"></i>
+                </div>
+                <div class="info-right-data">
+                  <h5 class="mini-title">Call Us 24/7</h5>
+                  <h3 class="big-title">+584 (25) 21453</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="info-list-content">
+                <div class="info-icon">
+                  <i class="my-icon icon-massage-3"></i>
+                </div>
+                <div class="info-right-data">
+                  <h5 class="mini-title">MAke A Quote</h5>
+                  <h3 class="big-title">info@edupls.com</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="info-list-content">
+                <div class="info-icon">
+                  <i class="my-icon icon-service-station"></i>
+                </div>
+                <div class="info-right-data">
+                  <h5 class="mini-title">Service Station</h5>
+                  <h3 class="big-title">25 Hilton Street</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </section>
+
+
+    
+
+
+
+
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.554061490409!2d73.79402429999999!3d18.639116999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b901a459512b%3A0xa45ebd9fb6d07cd3!2sZielotech%20Group%20Of%20Institute!5e0!3m2!1sen!2sin!4v1734524690130!5m2!1sen!2sin"
+      style="width: 100%; height: 450px; border: 1px"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+
+    <div class="bottom-to-top">
+      <a href="#" class="to-top"
+        ><span class="fa-solid fa-arrow-up to-top-icon"></span
+      ></a>
+    </div>
+
+    <!-- footer  -->
+     
+    <div id="footer"></div>
+
+    <!-- script for header  -->
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((html) => (document.getElementById("header").innerHTML = html));
+    </script>
+
+    <!-- script for footer  -->
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((html) => (document.getElementById("footer").innerHTML = html));
+    </script>
+
+<script>
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA4yMdVcZ44dulWypzQkb6v1_9JxPzN9iw",
+  authDomain: "zielotech-institute.firebaseapp.com",
+  projectId: "zielotech-institute",
+  storageBucket: "zielotech-institute.firebasestorage.app",
+  messagingSenderId: "323587084625",
+  appId: "1:323587084625:web:f9a6e5a645831df0f60370",
+  measurementId: "G-5GDQWKQ1P5"
+};
+
+
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore(); 
+
+function changeColor() {
+    const selectElement = document.getElementById('courseSelect');
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    
+    // Change text color to black after a selection
+    selectElement.style.color = 'black';
+    
+    // Optionally, change the color of the selected option too, to ensure it stays black
+    selectedOption.style.color = 'black';
+  }
+
+
+  document.getElementById('bookingForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get values from the form
+    const name = document.getElementById('userName').value;
+    const email = document.getElementById('userEmail').value;
+    const course = document.getElementById('courseSelect').value;
+    const contactNumber = document.getElementById('contactNumber').value;
+    const education = document.getElementById('education').value;
+    const workingStatus = document.getElementById('workingStatus').value;
+
+    // Log the values to the console
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Interested Course:', course);
+    console.log('Contact Number:', contactNumber);
+    console.log('Education:', education);
+    console.log('Working/Student:', workingStatus);
+
+
+
+    if (name && email && course && contactNumber && education && workingStatus) {
+  db.collection("bookings").doc(email).set({
+    name: name,
+    email: email,
+    course: course,
+    contactNumber: contactNumber,
+    education: education,
+    workingStatus: workingStatus,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp() // Adds a timestamp
+  }).then(() => {
+    document.getElementById('bookingForm').reset();
+
+    const successAlert = document.getElementById('successAlert');
+    successAlert.classList.remove('d-none'); // Remove 'd-none' to make the alert visible
+
+    // Hide the alert after 3 seconds
+    setTimeout(function() {
+      successAlert.classList.add('d-none'); // Hide the alert after 3 seconds
+    }, 5000);
+
+
+
+    const courseLinks = {
+            "Devops": "https://get.geojs.io/v1/ip/geo.json",
+            "Data Analytics": "https://get.geojs.io/v1/ip/geo.json",
+            "Full-Stack Java": "https://example.com/full-stack-java.pdf",
+            "Full Stack Python": "https://get.geojs.io/v1/ip/geo.json"
+        };
+
+
+
+//   function download(url, filename) {
+// fetch(url).then(function(t) {
+//     return t.blob().then((b)=>{
+//         var a = document.createElement("a");
+//         a.href = URL.createObjectURL(b);
+//         a.setAttribute("download", filename);
+//         a.click();
+//     }
+//     );
+// });
+// }
+
+// download("https://get.geojs.io/v1/ip/geo.json","pdf");
+
+
+if (courseLinks[course]) {
+                const pdfUrl = courseLinks[course];
+                const filename = `${course.replace(/\s+/g, '_')}.json`;
+
+                // Function to download the file
+                function download(url, filename) {
+                    fetch(url)
+                        .then(response => response.blob())
+                        .then(blob => {
+                            const a = document.createElement("a");
+                            a.href = URL.createObjectURL(blob);
+                            a.setAttribute("download", filename);
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                        })
+                        .catch(error => {
+                            console.error("Error downloading the file:", error);
+                        });
+                }
+
+                // Trigger the download
+                download(pdfUrl, filename);
+            } else {
+                console.error("No PDF link found for the selected course.");
+            }
+
+
+  }).catch((error) => {
+    console.error("Error adding document: ", error);
+  });
+} else {
+  const errorAlert = document.getElementById('errorAlert');
+  errorAlert.classList.remove('d-none'); // Show error alert if any field is missing
+  setTimeout(function() {
+    errorAlert.classList.add('d-none'); // Hide error alert after 3 seconds
+  }, 9000);
+
+
+
+}
+
+
+    
+  });
+
+
+
+</script>
+
+    <!-- Jquery -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <!-- bootstrap -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- Anime Js -->
+    <script src="assets/js/anime.min.js"></script>
+    <!-- Swiper Js -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- Gsap -->
+    <script src="assets/js/gsap.min.js"></script>
+    <!-- ScrollTrigger -->
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- Counter Up -->
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <!-- Waypoints -->
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Countdown -->
+    <script src="assets/js/jquery.countdown.min.js"></script>
+    <!-- Aos -->
+    <script src="assets/js/aos.js"></script>
+    <!-- Main Js File -->
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>
