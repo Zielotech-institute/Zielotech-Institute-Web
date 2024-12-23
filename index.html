@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <!-- Responsive -->
     <link rel="stylesheet" href="assets/css/responsive.css" />
+
+
+    
+
+
     
   </head>
 
@@ -1918,6 +1923,8 @@
       ></a>
     </div>
 
+    
+
 
 
 
@@ -1927,8 +1934,93 @@
     <!-- script for header  -->
 
 
-    
   
+
+    <script type="module">
+      // Import Firebase and Firestore from CDN
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js';
+      // import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js';
+      import { getFirestore, doc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js';
+  
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4yMdVcZ44dulWypzQkb6v1_9JxPzN9iw",
+        authDomain: "zielotech-institute.firebaseapp.com",
+        projectId: "zielotech-institute",
+        storageBucket: "zielotech-institute.firebasestorage.app",
+        messagingSenderId: "323587084625",
+        appId: "1:323587084625:web:f9a6e5a645831df0f60370",
+        measurementId: "G-5GDQWKQ1P5"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+    
+      // Handle the form submission
+      document.getElementById('contactForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Prevent form default submission
+    
+        // Get entered form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const course = document.getElementById('course').value;
+        const education = document.getElementById('education').value;
+        const status = document.getElementById('status').value;
+        const contactNumber = document.getElementById('contactNumber').value;
+
+
+        function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+    
+        // Save the data to Firestore
+        try {
+          
+      
+
+          const docRef = doc(db, "Booking", email); // Set email as the document ID
+      await setDoc(docRef, {
+        name: name,
+        email: email,
+        course: course,
+        education: education,
+        workingStatus: status,
+        contactNumber: contactNumber,
+        timestamp: serverTimestamp() // Adds a timestamp
+      });
+
+          console.log("Document successfully written with ID: ", docRef.id);
+    
+          // Show toast notification
+          const toast = new bootstrap.Toast(document.getElementById('successToast'));
+          toast.show();
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }
+
+        if (isMobile()) {
+        setTimeout(() => {
+          window.location.reload();  // Refresh the page after the toast duration
+        }, 5000); // 5000 milliseconds (5 seconds) delay
+      }
+    
+
+    
+        // Optionally reset the form
+        this.reset();
+    
+        // Close the modal
+        const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+         contactModal.hide();
+
+
+
+
+        //contactModal.dispose();
+      });
+    </script>
+    
 
   <!-- Include Header via JavaScript -->
  
@@ -1939,6 +2031,53 @@
         .then((html) => (document.getElementById("navbar").innerHTML = html));
     </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bookNowButton = document.querySelector(".mobile-menu .nav-link[data-bs-target='#contactModal']");
+    const mobileMenu = document.querySelector(".mobile-menu-wrapper");
+    const contactModal = document.getElementById("contactModal");
+
+    if (bookNowButton && mobileMenu && contactModal) {
+      bookNowButton.addEventListener("click", () => {
+        // Close the mobile menu
+        mobileMenu.style.display = "none";
+
+        // Show the modal
+        contactModal.setAttribute("aria-hidden", "false");
+        contactModal.style.display = "block";
+        document.body.classList.add("modal-open"); // Prevents background scrolling
+      });
+    }
+
+    // Close modal logic
+    const modalCloseButton = contactModal?.querySelector(".btn-close");
+    if (modalCloseButton) {
+      modalCloseButton.addEventListener("click", () => {
+        // Hide the modal
+        contactModal.setAttribute("aria-hidden", "true");
+        contactModal.style.display = "none";
+        document.body.classList.remove("modal-open"); // Restores background scrolling
+
+        // Optionally, restore mobile menu visibility
+        mobileMenu.style.display = "block"; // Comment out if you don't want to reopen the menu
+      });
+    }
+
+    // Optional: Handle clicks outside the modal to close it
+    document.addEventListener("click", (event) => {
+      if (
+        contactModal.style.display === "block" &&
+        !contactModal.contains(event.target) &&
+        !bookNowButton.contains(event.target)
+      ) {
+        contactModal.setAttribute("aria-hidden", "true");
+        contactModal.style.display = "none";
+        document.body.classList.remove("modal-open"); // Restores background scrolling
+        mobileMenu.style.display = "block"; // Comment out if not needed
+      }
+    });
+  });
+</script>
 
 
 

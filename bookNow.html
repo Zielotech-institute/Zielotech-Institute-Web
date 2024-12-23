@@ -314,7 +314,7 @@ function changeColor() {
 
 
 
-    if (name && email && course && contactNumber && education && workingStatus) {
+    if (name && email && course && contactNumber && workingStatus) {
   db.collection("bookings").doc(email).set({
     name: name,
     email: email,
@@ -339,8 +339,8 @@ function changeColor() {
     const courseLinks = {
             "Devops": "https://get.geojs.io/v1/ip/geo.json",
             "Data Analytics": "https://get.geojs.io/v1/ip/geo.json",
-            "Full-Stack Java": "https://example.com/full-stack-java.pdf",
-            "Full Stack Python": "https://get.geojs.io/v1/ip/geo.json"
+            "Full-Stack Java": "E:\Zielotech\zielotech-institute-20241218T074106Z-001\zielotech-institute\assets\syllabus pdf\FULL STACK JAVA.pdf",
+            "Full Stack Python": "E:\Zielotech\zielotech-institute-20241218T074106Z-001\zielotech-institute\assets\syllabus pdf\FULL STACK PYTHON.pdf"
         };
 
 
@@ -437,3 +437,5 @@ if (courseLinks[course]) {
     <script src="assets/js/index.js"></script>
   </body>
 </html>
+
+

@@ -64,39 +64,6 @@
     </div>
   </div>
 
- 
-  <!-- <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="contactModalLabel">Book Now</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Enter your name">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea class="form-control" id="message" rows="3" placeholder="Your message"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button id="submit" type="button" class="btn btn-primary">Submit</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
   <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -105,24 +72,27 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form id="contactForm"> <!-- Add this ID -->
             <!-- Name Field -->
             <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Enter your name">
+              <label for="name" class="form-label " style="font-weight: bold;">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
             </div>
-  
+        
             <!-- Email Field -->
             <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="name@example.com">
+              <label for="email" class="form-label"style="font-weight: bold;">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="email@gmail.com" required>
             </div>
-  
-          
+            <div class="mb-3">
+              <label for="contact" class="form-label" style="font-weight: bold;">Contact Number</label>
+              <input type="tel" class="form-control" id="contactNumber" placeholder="8459287031" required>
+            </div>
+        
             <!-- Interested Course Dropdown -->
             <div class="mb-3">
-              <label for="course" class="form-label">Interested Course</label>
-              <select class="form-control" id="course">
+              <label for="course" class="form-label" style="font-weight: bold;">Interested Course</label>
+              <select class="form-control" id="course" required>
                 <option value="">Select Course</option>
                 <option value="devops">DevOps</option>
                 <option value="data_analytics">Data Analytics</option>
@@ -131,41 +101,67 @@
                 <option value="full_stack_python">Full Stack Python</option>
               </select>
             </div>
-  
+        
             <!-- Education Level Dropdown -->
             <div class="mb-3">
-              <label for="education" class="form-label">Your Education</label>
-              <select class="form-control" id="education">
+              <label for="education" class="form-label" style="font-weight: bold;">Your Education</label>
+              <select class="form-control" id="education" required>
                 <option value="">Select Education</option>
                 <option value="bachelor">Bachelor's Degree</option>
                 <option value="master">Master's Degree</option>
                 <option value="diploma">Diploma</option>
-                <option value="highschool">High School</option>
                 <option value="other">Other</option>
               </select>
             </div>
-  
+        
             <!-- Working/Student Status -->
             <div class="mb-3">
-              <label for="status" class="form-label">Are you Working or a Student?</label>
-              <select class="form-control" id="status">
+              <label for="status" class="form-label" style="font-weight: bold;">Are you Working or a Student?</label>
+              <select class="form-control" id="status" required>
                 <option value="">Select Status</option>
                 <option value="working">Working</option>
                 <option value="student">Student</option>
               </select>
             </div>
-  
-            
+        
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              <button type="submit" class="btn btn-primary" id="submit">Submit</button> <!-- Submit type changed here -->
+            </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button id="submit" type="button" class="btn btn-primary">Submit</button>
-        </div>
+        
       </div>
     </div>
   </div>
+
+
   
+
+
+
+
+
+<!-- Toast Notification -->
+<div class="toast-container position-fixed  bottom-0 end-0 p-3" style="z-index: 9999;">
+  <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-success text-white">
+      
+      <strong class="me-auto">Success</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Your form has been submitted successfully!
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 
   <div class="sticky-wrapper">
     <div class="sticky-top">
@@ -275,6 +271,11 @@
   </div>
 
 
+
+  
+
+
+
   <!-- Mobile Menu -->
   <div class="mobile-menu-wrapper">
     <div class="mobile-menu-area text-center">
@@ -289,8 +290,25 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about-us.html">Corporate</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <!-- <button class="btn-p v1 btn-blue icon-v1 rounded" data-bs-toggle="modal" data-bs-target="#contactModal">
+            Book Now
+          </button> -->
+          
+          <li>
+            <a id="closeMobileMenuButton" href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#contactModal">
+              Book Now
+            </a>
+          </li>
+          
         </ul>
       </div>
     </div>
   </div>
+
+
+  
+  
 </header>
+
+
+
